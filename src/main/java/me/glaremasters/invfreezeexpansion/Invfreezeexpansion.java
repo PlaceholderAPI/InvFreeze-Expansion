@@ -66,7 +66,6 @@ public class Invfreezeexpansion extends PlaceholderExpansion {
     @Override
     public String onPlaceholderRequest(Player p, String identifier) {
 
-        // %example_placeholder1%
         if (identifier.equals("status")) {
             if (p.hasPermission("invfreeze.frozen")) {
                 return "frozen";
