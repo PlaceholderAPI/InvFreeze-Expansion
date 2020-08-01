@@ -3,6 +3,7 @@ package me.glaremasters.invfreezeexpansion;
 
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 
+import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
 /**
@@ -47,7 +48,7 @@ public class Invfreezeexpansion extends PlaceholderExpansion {
      * for them to work
      */
     @Override
-    public String getPlugin() {
+    public String getRequiredPlugin() {
         return null;
     }
 
@@ -64,10 +65,11 @@ public class Invfreezeexpansion extends PlaceholderExpansion {
      * We specify the value identifier in this method
      */
     @Override
-    public String onPlaceholderRequest(Player p, String identifier) {
+    public String onRequest(OfflinePlayer p, String identifier) {
+        Player player = (Player) p;
 
         if (identifier.equals("status")) {
-            if (p.hasPermission("invfreeze.frozen")) {
+            if (player.hasPermission("invfreeze.frozen")) {
                 return "frozen";
             }
             else {
